@@ -1,0 +1,16 @@
+# Your real database settings (the .example file IS committed)
+db.properties
+
+# Build output and compiled files
+build/
+bin/
+target/
+*.class
+
+# Logs and editor or system files
+*.log
+.metadata/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

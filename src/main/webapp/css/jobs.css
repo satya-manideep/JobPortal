@@ -1,0 +1,37 @@
+@charset "UTF-8";
+/* jobs.css - job list and job details pages */
+
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.filters input, .filters select { flex: 1; min-width: 160px; }
+.count { margin: 0 0 16px; font-size: 14px; color: var(--muted); }
+.posted { margin: 12px 0 0; font-size: 13px; color: var(--muted); }
+
+.back {
+    display: inline-block;
+    margin-bottom: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.detail { display: grid; grid-template-columns: 1.6fr 1fr; gap: 24px; align-items: start; }
+.info h1 { margin: 0 0 2px; font-size: 28px; }
+.info h3 {
+    margin: 24px 0 8px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-dark);
+}
+.info p { margin: 0 0 12px; }
+.info ul { margin: 0; padding-left: 20px; }
+.info li { margin-bottom: 6px; }
+
+.apply { position: sticky; top: 16px; }
+.apply h3 { margin: 0 0 4px; font-size: 20px; }
+.apply .hint { margin: 4px 0 0; font-size: 13px; color: var(--muted); }
+
+@media (max-width: 800px) {
+    .detail { grid-template-columns: 1fr; }
+    .apply { position: static; }
+}

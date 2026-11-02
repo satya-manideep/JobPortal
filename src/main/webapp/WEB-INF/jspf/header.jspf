@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${pageTitle} | JobPortal</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<% String extraCss = (String) request.getAttribute("extraCss");
+   if (extraCss != null) { %>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/<%= extraCss %>">
+<% } %>
+</head>
+<body>
+      <%
+    com.jobportal.model.User navUser = (com.jobportal.model.User) session.getAttribute("user");
+%>
+<nav class="nav">
+    <div class="inner">
+        <a class="brand" href="${pageContext.request.contextPath}/index.jsp">JobPortal</a>
+        <a class="link" href="${pageContext.request.contextPath}/index.jsp">Home</a>
+        <a class="link" href="${pageContext.request.contextPath}/jobs">Jobs</a>
+
+        <% if (navUser == null) { %>
+            <a class="link" href="${pageContext.request.contextPath}/login.jsp">Login</a>
+            <a class="btn btn-primary" href="${pageContext.request.contextPath}/register.jsp">Register</a>
+
+        <% } else if (navUser.isRecruiter()) { %>
+            <a class="link" href="${pageContext.request.contextPath}/post-job.jsp">Post a Job</a>
+            <a class="link" href="${pageContext.request.contextPath}/my-jobs.jsp">My Jobs</a>
+            <span class="hello">Hi, <%= com.jobportal.util.HtmlUtil.escape(navUser.getFullName()) %></span>
+            <form action="${pageContext.request.contextPath}/logout" method="post">
+                <button type="submit" class="link">Logout</button>
+            </form>
+
+        <% } else { %>
+            <a class="link" href="${pageContext.request.contextPath}/my-applications.jsp">My Applications</a>
+            <span class="hello">Hi, <%= com.jobportal.util.HtmlUtil.escape(navUser.getFullName()) %></span>
+            <form action="${pageContext.request.contextPath}/logout" method="post">
+                <button type="submit" class="link">Logout</button>
+            </form>
+        <% } %>
+    </div>
+</nav>

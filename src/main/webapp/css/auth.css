@@ -1,0 +1,31 @@
+@charset "UTF-8";
+/* auth.css - login and registration pages only */
+
+body { background: linear-gradient(180deg, #e0e7ff 0%, var(--bg) 280px); }
+
+.form-card { max-width: 440px; margin: 48px auto; padding: 32px 36px; }
+.form-card.wide { max-width: 640px; }
+.form-card h2 { margin: 0 0 4px; font-size: 26px; text-align: center; }
+.form-card .page-sub { margin-bottom: 24px; text-align: center; }
+.form-card .btn-block { margin-top: 8px; padding: 12px; }
+
+.choice { display: flex; gap: 12px; }
+.choice label {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    padding: 10px 14px;
+    font-weight: 600;
+    background: #f9fafb;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.choice label:has(input:checked) {
+    background: #eff6ff;
+    border-color: var(--accent);
+}
+
+.form-foot { margin: 20px 0 0; font-size: 14px; text-align: center; color: var(--muted); }
